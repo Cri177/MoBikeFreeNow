@@ -1,0 +1,38 @@
+
+<h1>Sblocca bici</h1>
+<div class="sub">RideMovi / Mobike · Bologna — <span id="state"><span class="dot"></span>disconnesso</span></div>
+
+<button id="scanQR" class="sec">📷 Scansiona QR</button>
+<video id="cam" playsinline="" muted=""></video>
+
+<label>ID bici</label>
+<input id="bikeId" placeholder="es. IE12H12508" autocapitalize="characters">
+
+<label>Chiave BLE (hex)</label>
+<input id="key" placeholder="32 caratteri esadecimali" autocapitalize="characters">
+
+<label>Formato comando</label>
+<select id="frameFmt">
+  <option value="raw">chiave grezza (16 byte)</option>
+  <option value="02">0x02 + chiave</option>
+  <option value="00">0x00 + chiave</option>
+  <option value="suffix00">chiave + 0x00</option>
+  <option value="custom">prefisso custom…</option>
+</select>
+<input id="customPrefix" placeholder="prefisso hex, es. 02 01" style="display:none;margin-top:8px">
+
+<div class="row" style="margin-top:16px">
+  <button id="connect">Connetti</button>
+  <button id="unlock" class="sec" disabled="">Sblocca</button>
+</div>
+
+<div id="gatt" class="card" style="display:none">
+  <b>Servizi / characteristic</b>
+  <div class="sub" style="margin:6px 0">Tocca una characteristic scrivibile per inviarle il comando.</div>
+  <div id="gattList"></div>
+</div>
+
+<div id="log"></div>
+
+
+
